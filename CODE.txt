@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Website Layout</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding-left: 160px; /* Espace à gauche pour la barre de navigation verticale */
+  padding-top: 60px; /* Ajoute de l'espace en haut pour éviter que le contenu soit caché sous la topnav */
+}
+
+/* Style the top navigation bar */
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 160px; /* Largeur de la topnav pour les grands écrans */
+  height: 100%; /* Prend toute la hauteur de l'écran */
+  display: flex;
+  flex-direction: column; /* Navigation verticale par défaut */
+  align-items: flex-start; /* Aligne les éléments à gauche */
+  z-index: 1000; /* Pour que la topnav reste au-dessus du contenu */
+  background-color: white; /* Fond blanc pour la topnav */
+}
+
+/* Style for the topnav links */
+.topnav a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  width: 100%; /* Prend toute la largeur du conteneur vertical */
+}
+
+/* Position and styling for h1 and h2 */
+.topnav h1, .topnav h2 {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.topnav h1 {
+  font-size: 24px;
+}
+
+.topnav h2 {
+  font-size: 18px;
+}
+
+.content {
+  padding: 10px;
+}
+
+/* Responsive layout - make the topnav horizontal when the screen is small */
+@media screen and (max-width: 600px) {
+  body {
+    padding-left: 0; /* Enlève l'espace à gauche pour la navigation horizontale */
+  }
+
+  .topnav {
+    position: fixed; /* La barre reste fixe même sur petits écrans */
+    width: 100%; /* Prend toute la largeur de l'écran */
+    height: auto; /* Retirer la hauteur complète */
+    flex-direction: row; /* Passage à une disposition horizontale */
+    align-items: center; /* Centrer les liens horizontalement */
+    top: 0; /* Rester en haut */
+    padding: 10px 0; /* Un peu de padding pour que les éléments soient bien espacés */
+  }
+  
+  .topnav a {
+    width: auto; /* Les liens ne prennent plus toute la largeur */
+    padding: 14px 16px;
+  }
+
+  /* h1 et h2 au-dessus de la topnav horizontale sur petit écran */
+  .topnav h1, .topnav h2 {
+    display: block; /* Afficher h1 et h2 au-dessus des liens de navigation */
+    margin: 0;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  /* h1 et h2 à l'intérieur de la topnav sur les grands écrans */
+  .topnav {
+    width: 160px; /* Spécifier une largeur fixe pour la topnav */
+    flex-direction: column; /* Navigation verticale */
+    align-items: flex-start; /* Alignement à gauche */
+  }
+
+  .topnav h1, .topnav h2 {
+    margin-top: 10px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <h1>Radio Compost</h1>
+  <h2>Bienvenue</h2>
+  <a href="#">Index</a>
+  <a href="#">Audios</a>
+  <a href="#">Documents</a>
+</div>
+
+<div class="content">
+  <h3>Main Content</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+</div>
+
+</body>
+</html>
