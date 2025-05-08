@@ -1,0 +1,180 @@
+/* ===== RESET DE BASE ===== */
+* {
+  box-sizing: border-box; /* Assure que la largeur et la hauteur d'un élément incluent ses bordures et marges */
+  margin: 0; /* Retire les marges par défaut */
+  padding: 0; /* Retire les espacements par défaut */
+  font-size: 1rem; /* Définit la taille de la police par défaut */
+  font-family: sans-serif; /* Utilisation d'une police sans-serif par défaut */
+  background: #f5f5f5; /* Couleur de fond claire */
+  color: #333; /* Couleur du texte sombre */
+}
+
+/* ===== TYPOGRAPHIE GÉNÉRALE ===== */
+h1, h2 /* Titres */ {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+/* ===== EN-TÊTE ===== */
+header { 
+  position: fixed; /* Position fixe pour que l'en-tête reste en haut même lors du défilement */
+  width: 100%; /* Largeur pleine de l'écran */
+  height: 30px; /* Hauteur arbitraire de l'en-tête */
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc; /* Bordure sous l'en-tête */
+  display: flex; /* Utilisation de flexbox pour organiser les éléments */
+  align-items: flex-end; /* Aligne les éléments vers le bas */
+  gap: 1.5rem; /* Espacement entre les éléments */
+}
+
+.topnav {
+  display: flex;
+  gap: 2rem;
+}
+
+.topnav a {
+  text-decoration: none;
+}
+.topnav a.active {
+  text-decoration: underline; /* Souligner le lien actif */
+}
+
+/* ===== STRUCTURE GÉNÉRALE ===== */
+body {
+  display: flex;
+}
+
+/* ===== MENU LATÉRAL ===== */
+aside {
+  position : fixed; /* Le menu est fixe à gauche */
+  margin-top: 30px; /* Décalage pour ne pas recouvrir l'en-tête */
+  width: 155px; /* Largeur fixe et encore une fois arbitraire pour le menu */
+  height: 100%;
+  padding: 1rem;
+  border-right: 1px solid #ccc; /* Bordure à droite du menu */
+}
+
+aside li {
+  list-style: none; /* Retirer les puces moches des listes */
+  margin-bottom: 0.5rem;
+}
+aside a {
+  text-decoration: none;
+}
+aside a.active {
+  text-decoration: underline;
+}
+
+/* ===== SECTION PRINCIPALE ===== */
+section {
+  padding: 2rem;
+  margin-left: 155px;
+}
+
+/* ===== GRILLE AUDIO ===== */
+#audio-grid {
+  columns: 2; /* Deux colonnes pour les éléments audio */
+}
+
+/* ===== BLOC AUDIO ===== */
+.audio-item {
+  padding: 1rem;
+  break-inside: avoid; /* Eviter que les éléments audio soient coupés à la pagination */
+  page-break-inside: avoid;
+  margin-bottom: 1.5em;
+}
+
+/* ===== TITRE AUDIO ===== */
+.audio-item h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  max-width: 100%;
+}
+
+.title-musique {
+  font-family: 'Pinyon Script', cursive;
+}
+
+/* ===== IMAGE ===== */
+.audio-item img {
+  display: block; /* Centrer l'image */
+  margin: 0 auto; /* Centrer horizontalement */
+  width: 80%; /* Largeur de l'image */
+  aspect-ratio: 3 / 2; /* Ratio largeur/hauteur de l'image */
+  object-fit: contain; /* Redimensionner l'image sans la couper */
+}
+
+/* ===== IFRAME AUDIO ===== */
+.audio-item iframe {
+  width: 100%;
+  height: 60px;
+}
+
+/* ===== TEXTES DÉCRITIFS ===== */
+.audio-text {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 1.2em;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* ===== LIENS DE GENRES ===== */
+.inline-genre {
+  text-decoration: underline;
+  cursor: pointer; /* Afficher un curseur de lien */
+  color: #555;
+}
+.inline-genre:hover {
+  color: #333; /* Couleur des liens au survol (hover) */
+}
+
+
+
+/* ===== RESPONSIVE (PETIT ÉCRAN) ===== */
+@media screen and (max-width: 800px) {
+  body {
+    flex-direction: column; /* Organiser les éléments en colonne pour les petits écrans */
+  }
+
+  aside { /* Les filtres sont maintenant affichés à l'horizontal */
+    position: fixed;
+    height: auto;
+    padding: 5px;
+    margin-left: 1em;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    line-height: 1; /* Réduire l'interligne */
+  }
+  aside ul {
+    display: flex;
+    flex-wrap: wrap; /* Disposer les genres sur plusieurs lignes */
+    gap: 0.5rem;
+  }
+  aside li {
+    margin-bottom: 0;
+  }
+
+  section {
+    margin: 0;
+    margin-top: 100px;
+    width: 100%;
+    padding: 0;
+  }
+
+  #audio-grid {
+    columns: 1; /* Afficher les éléments audio en une seule colonne sur les petits écrans */
+  }
+
+  .audio-item img {
+    width: 60%; /* Réduire la taille des images sur les petits écrans */
+  }
+}
+
+/* Rappel sur les unités CSS :
+   - rem : "root em", basé sur la taille de police racine (généralement 16px)
+   - em : relative à la taille de police de l'élément parent
+   - px : pixels (taille fixe)
+   - % : pourcentage, basé sur la taille du parent
+   - vw/vh : unités basées sur la taille de la fenêtre (viewport width/height)
+*/
