@@ -41,7 +41,6 @@
 
 
   <script>
-<<<<<<< HEAD
     let allAudioData = []; // stockage global des données
 
     // Fonction pour créer un bloc audio à partir d'une ligne de données
@@ -164,125 +163,6 @@
         allAudioData = data;
         buildGenreMenu(data);
         displayAudioData(data);
-=======
-    fetch("https://opensheet.elk.sh/1LkvqRTSZ7Pn516Zm_0BcaPlfriHF8OAJDULjwxokaNs/Audios")
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById("audio-grid");
-        const genreMenu = document.getElementById("genre-menu");
-        const allGenres = new Set();
-
-        data.forEach(row => {
-          if (row.Genre) {
-            row.Genre.split(",").forEach(g => allGenres.add(g.trim()));
-          }
-
-          const block = document.createElement("div");
-          block.classList.add("audio-item");
-          block.dataset.genre = row.Genre
-            ? row.Genre.split(",").map(g => g.trim().toLowerCase()).join(",")
-            : "";
-
-          const title = document.createElement("h2");
-          title.textContent = row.Titre;
-          title.classList.add("title-musique");
-          block.appendChild(title);
-
-          if (row.Cover) {
-            const cover = document.createElement("img");
-            cover.src = convertToImageLink(row.Cover);
-            cover.alt = row.Titre;
-            block.appendChild(cover);
-          }
-
-          const iframe = document.createElement("iframe");
-          iframe.src = convertToPreviewLink(row.Content);
-          iframe.allow = "autoplay";
-          block.appendChild(iframe);
-
-          const info = document.createElement("div");
-          info.classList.add("audio-info");
-
-          if (row.Resume) {
-            const resume = document.createElement("p");
-            resume.textContent = row.Resume;
-            resume.classList.add("resume-text");
-            info.appendChild(resume);
-          }
-
-          if (row.Tracklist) {
-            const tracklist = document.createElement("p");
-            tracklist.innerHTML = "Tracklist :<br>" + row.Tracklist.replace(/\n/g, "<br>");
-            tracklist.classList.add("tracklist-text");
-            info.appendChild(tracklist);
-          }
-
-          if (row.Genre) {
-            const genres = row.Genre.split(",").map(g => g.trim());
-            const genreWrapper = document.createElement("p");
-            genreWrapper.classList.add("genre-text"); // Nouvelle classe ici
-            genreWrapper.innerHTML = `Genre : ` + genres.map(g =>
-              `<a href="#" class="inline-genre" data-genre="${g}">${g}</a>`
-            ).join(", ");
-            info.appendChild(genreWrapper);
-          }
-
-
-          block.appendChild(info);
-          container.appendChild(block);
-        });
-
-        // Création du menu latéral avec "Tous"
-        const allItem = document.createElement("li");
-        allItem.innerHTML = `<a href="#" data-genre="all" class="active">Tous les contenus</a>`;
-        genreMenu.appendChild(allItem);
-
-        Array.from(allGenres).sort().forEach(genre => {
-          const li = document.createElement("li");
-          li.innerHTML = `<a href="#" data-genre="${genre}">${genre}</a>`;
-          genreMenu.appendChild(li);
-        });
-
-        // Fonction de filtrage partagée
-        function filterByGenre(genre) {
-          document.querySelectorAll("#genre-menu a").forEach(link => {
-            // Retirer la classe "active" de tous les liens
-            link.classList.remove("active");
-
-            // Ajouter la classe "active" au lien correspondant au genre sélectionné
-            if (link.dataset.genre === genre) {
-              link.classList.add("active");
-            }
-          });
-
-          document.querySelectorAll(".audio-item").forEach(item => {
-            const itemGenres = item.dataset.genre.toLowerCase().split(",").map(g => g.trim());
-            if (genre === "all" || itemGenres.includes(genre.toLowerCase())) {
-              item.style.display = "flex";
-            } else {
-              item.style.display = "none";
-            }
-          });
-        }
-
-
-        // Gestion des clics dans le menu latéral
-        genreMenu.addEventListener("click", e => {
-          if (e.target.matches("a[data-genre]")) {
-            e.preventDefault();
-            filterByGenre(e.target.dataset.genre);
-          }
-        });
-
-        // Gestion des clics sur les genres dans les cartes
-        container.addEventListener("click", e => {
-          if (e.target.matches("a.inline-genre")) {
-            e.preventDefault();
-            const selectedGenre = e.target.dataset.genre;
-            filterByGenre(selectedGenre);
-          }
-        });
->>>>>>> d8372b806e8d1b40a8e39b7402acb33290a25243
       });
 
     function convertToImageLink(link) {
@@ -296,10 +176,6 @@
     }   
   </script>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> d8372b806e8d1b40a8e39b7402acb33290a25243
 </body>
 
 </html>
