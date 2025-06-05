@@ -1,0 +1,25 @@
+
+
+
+
+			A faire :
+
+
+
+		Les genres apparaissent en colonne unique quand petit format.
+
+			Les images sont cropped quand on diminue la taille de la fenêtre. Il faudrait que peu importe la taille de la fenêtre, les 	
+				images doivent forcemment correspondre à la taille attendue et dissociée de l'espace attribué au titre et au lecteur !
+
+					
+						Filtre low-tech pour les images !
+
+	Réfléchir les emplacements de contenu ! Colonnes simples, avec le même espace associé ou plus en fonction du contenu (taille de la tracklist).
+
+
+			Comment différencier les contenus musicaux des documentaires sonores ?
+				Typographies, rajouter plus d'images ? Un joli cadre (selon le sujet : fourmis, empreintes, feuilles) ?
+
+
+
+	Réfléchir à un autre type d'image à ajouter sur les contenus musicaux ! Genre le visage du DJ en filigrane ou une photo d'ID, plein pieds ?
