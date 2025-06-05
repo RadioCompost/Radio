@@ -80,6 +80,7 @@ aside a.active {
 section {
   padding: 2rem;
   margin-left: 155px;
+  margin-right: 200px;
 }
 
 /* ===== GRILLE AUDIO ===== */
@@ -145,7 +146,7 @@ section {
 
 
 /* ===== RESPONSIVE (PETIT ÉCRAN) ===== */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   body {
     flex-direction: column; /* Organiser les éléments en colonne pour les petits écrans */
   }
