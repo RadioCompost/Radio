@@ -4,6 +4,7 @@
 
 			A faire :
 
+<<<<<<< HEAD
 
 
 		Les genres apparaissent en colonne unique quand petit format.
@@ -16,10 +17,23 @@
 
 	Réfléchir les emplacements de contenu ! Colonnes simples, avec le même espace associé ou plus en fonction du contenu (taille de la tracklist).
 
+=======
+					
+						Filtre low-tech pour les images !
+
+>>>>>>> d8372b806e8d1b40a8e39b7402acb33290a25243
 
 			Comment différencier les contenus musicaux des documentaires sonores ?
 				Typographies, rajouter plus d'images ? Un joli cadre (selon le sujet : fourmis, empreintes, feuilles) ?
 
 
+<<<<<<< HEAD
 
 	Réfléchir à un autre type d'image à ajouter sur les contenus musicaux ! Genre le visage du DJ en filigrane ou une photo d'ID, plein pieds ?
+=======
+	Réfléchir à un autre type d'image à ajouter sur les contenus musicaux ! Genre le visage du DJ en filigrane ou une photo d'ID, plein pieds ?
+
+							
+
+									Documents : Comme une grosse pile de documents !!!
+>>>>>>> d8372b806e8d1b40a8e39b7402acb33290a25243
