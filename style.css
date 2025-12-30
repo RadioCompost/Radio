@@ -57,7 +57,6 @@ aside {
   position: fixed; /* Le menu est fixe à gauche */
   margin-top: 6.5rem; /* Décalage pour ne pas recouvrir l'en-tête */
   width: 155px; /* Largeur fixe */
-  height: 100%;
   padding: 1rem;
   border-right: 1px solid #ccc; /* Bordure à droite du menu */
 }
