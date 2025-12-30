@@ -27,7 +27,7 @@ header h1 {
 header { 
   position: fixed; /* Position fixe pour que l'en-tête reste en haut même lors du défilement */
   width: 100%; /* Largeur pleine de l'écran */
-  height: auto; /* Hauteur automatique de l'en-tête */
+  height: 6.5rem; /* Hauteur automatique de l'en-tête */
   padding: 0.1rem;
   border-bottom: 1px solid #ccc; /* Bordure sous l'en-tête */
   display: flex; /* Utilisation de flexbox pour organiser les éléments */
