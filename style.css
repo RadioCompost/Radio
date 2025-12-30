@@ -1,4 +1,4 @@
-/* ===== 1. POLICES PERSONNALISÉES ===== */
+/* ===== 1. POLICES & RESET ===== */
 @font-face {
     font-family: 'Wreckage';
     src: url('fonts/Wreckage-GrotesqueOne.otf') format('opentype');
@@ -6,55 +6,57 @@
     font-style: normal;
 }
 
-/* ===== 2. RESET & STRUCTURE GÉNÉRALE ===== */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    display: flex;
-    font-size: 1rem;
-    font-family: sans-serif;
-    background: #f5f5f5; /* Couleur de fond sur le body uniquement */
+html, body {
+    height: 100%;
+    overflow: hidden; /* Bloque le scroll global */
+    background: #efefef;
     color: #333;
+    font-family: sans-serif;
 }
 
-/* ===== 3. EN-TÊTE (FIXE) ===== */
-header { 
-    position: fixed;
+/* ===== 2. LE HEADER (20% Vertical) ===== */
+header {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 7rem;
-    padding: 1rem 2rem;
-    background: #f5f5f5; /* Pour masquer les éléments qui défilent dessous */
+    height: 20%;
+    padding: 1rem 1rem;
     border-bottom: 1px solid #ccc;
     display: flex;
-    align-items: center; /* Aligné verticalement au centre */
-    justify-content: space-between; /* Espace entre nav et titre */
+    flex-direction: column; /* Organise le titre et les liens l'un au dessus de l'autre */
+    justify-content: center; /* Centre verticalement dans les 20% */
+    align-items: center;     /* Centre horizontalement */
+    gap: 1rem;             /* Espace réduit entre le titre et les liens */
     z-index: 1000;
 }
 
 header h1 {
+    color: #2d2d2d;
     font-family: 'Wreckage', sans-serif !important;
     font-size: 5rem;
-    text-align: center;
-    flex-grow: 1; /* Prend tout l'espace pour se centrer */
-    background: none;
     line-height: 1;
+    text-align: center;
 }
 
 .topnav {
     display: flex;
-    gap: 1.5rem;
-    white-space: nowrap; /* Empêche le menu de passer à la ligne */
+    gap: 90px;
+    white-space: nowrap;
+    justify-content: center;
 }
 
 .topnav a {
     text-decoration: none;
     color: #333;
+    font-size: 1rem;
+    letter-spacing: 1px; /* Un peu d'air entre les lettres pour l'esthétique */
 }
 
 .topnav a.active {
@@ -62,79 +64,89 @@ header h1 {
     font-weight: bold;
 }
 
-/* ===== 4. NAVIGATION LATÉRALE (ASIDE) ===== */
+/* ===== 3. STRUCTURE MAIN (80% Vertical) ===== */
+main {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    height: 80%;
+    display: flex;
+}
+
+/* ASIDE - GENRES (15% Horizontal) */
 aside {
-    position: fixed;
-    top: 7rem; /* Sous le header */
-    left: 0;
-    width: 155px;
-    height: calc(100vh - 7rem);
+    width: 15%;
+    height: 100%;
     padding: 1.5rem 1rem;
     border-right: 1px solid #ccc;
-    overflow-y: auto; /* Permet de scroller dans les genres si besoin */
+    overflow-y: auto;
 }
 
-aside ul {
+/* On force le conteneur UL à devenir une colonne */
+aside ul { 
     list-style: none;
-}
-
-aside li {
-    margin-bottom: 0.8rem;
+    display: flex;
+    flex-direction: column; /* Force l'alignement vertical */
+    gap: 0.2rem; /* Remplace le margin-bottom des li pour plus de fiabilité */
 }
 
 aside a {
+    display: block; 
     text-decoration: none;
     text-transform: capitalize;
     color: #555;
+    font-size: 1rem;
+    width: 100%;
 }
 
 aside a.active {
     text-decoration: underline;
     color: #000;
+    font-weight: bold;
 }
 
-/* ===== 5. CONTENU PRINCIPAL (SECTION) ===== */
+/* SECTION - CONTENU (70% Horizontal) */
 section {
-    margin-top: 7rem; /* Pour ne pas être sous le header */
-    margin-left: 155px; /* Pour ne pas être sous le aside */
-    margin-right: 200px; /* Espace pour le tchat à droite */
+    width: 70%;
+    height: 100%;
     padding: 2rem;
-    flex-grow: 1;
+    overflow-y: auto;
 }
 
-/* Grille des audios */
+/* CHAT (15% Horizontal) */
+#chat-container {
+    width: 15%;
+    height: 100%;
+    border-left: 1px solid #ccc;
+}
+
+/* ===== 4. GRILLE AUDIO & ESTHÉTIQUE BLOCS ===== */
 #audio-grid {
-    columns: 2;
-    column-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes égales */
+    gap: 2rem;
 }
 
 .audio-item {
-    break-inside: avoid;
-    margin-bottom: 3rem;
-    padding-bottom: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-/* Titres des musiques */
 .audio-item h2 {
     font-size: 2.2rem;
     text-align: center;
     margin-bottom: 1rem;
-}
-
-.title-musique {
     font-family: 'Pinyon Script', cursive;
 }
 
-/* Images de cover */
 .audio-item img {
     display: block;
     margin: 0 auto 1.5rem;
-    width: 90%;
+    width: 100%;
     aspect-ratio: 3 / 2;
     object-fit: contain;
 }
 
-/* Lecteur iframe */
 .audio-item iframe {
     width: 100%;
     height: 60px;
@@ -157,42 +169,4 @@ section {
     text-decoration: underline;
     cursor: pointer;
     color: #666;
-}
-
-/* ===== 6. RESPONSIVE (MOBILES) ===== */
-@media screen and (max-width: 900px) {
-    header {
-        height: auto;
-        flex-direction: column;
-        position: relative;
-    }
-
-    header h1 {
-        font-size: 3rem;
-    }
-
-    aside {
-        position: relative;
-        top: 0;
-        width: 100%;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid #ccc;
-    }
-
-    aside ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    section {
-        margin: 0;
-        width: 100%;
-        padding: 1rem;
-    }
-
-    #audio-grid {
-        columns: 1;
-    }
 }
