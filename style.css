@@ -1,202 +1,198 @@
-/* ===== RESET DE BASE ===== */
-* {
-  box-sizing: border-box; /* Assure que la largeur et la hauteur d'un élément incluent ses bordures et marges */
-  margin: 0; /* Retire les marges par défaut */
-  padding: 0; /* Retire les espacements par défaut */
-  font-size: 1rem; /* Définit la taille de la police par défaut */
-  font-family: sans-serif; /* Utilisation d'une police sans-serif par défaut */
-  background: #f5f5f5; /* Couleur de fond claire */
-  color: #333; /* Couleur du texte sombre */
-}
-
-/* ===== POLICES PERSONNALISÉES ===== */
+/* ===== 1. POLICES PERSONNALISÉES ===== */
 @font-face {
-    font-family: 'Wreckage'; /* Le nom qu'on utilisera plus bas */
+    font-family: 'Wreckage';
     src: url('fonts/Wreckage-GrotesqueOne.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
-header h1 {
-  font-family: 'Wreckage', sans-serif !important; /* Ajoute !important pour gagner sur le * */
-  font-size: 5rem; 
-  background: none; /* TRÈS IMPORTANT : ton * met un fond gris partout, ici on n'en veut pas */
+/* ===== 2. RESET & STRUCTURE GÉNÉRALE ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* ===== EN-TÊTE ===== */
+body {
+    display: flex;
+    font-size: 1rem;
+    font-family: sans-serif;
+    background: #f5f5f5; /* Couleur de fond sur le body uniquement */
+    color: #333;
+}
+
+/* ===== 3. EN-TÊTE (FIXE) ===== */
 header { 
-  position: fixed; /* Position fixe pour que l'en-tête reste en haut même lors du défilement */
-  width: 100%; /* Largeur pleine de l'écran */
-  height: 7rem; /* Hauteur automatique de l'en-tête */
-  padding: 0.1rem;
-  border-bottom: 1px solid #ccc; /* Bordure sous l'en-tête */
-  display: flex; /* Utilisation de flexbox pour organiser les éléments */
-  align-items: flex-end; /* Aligne les éléments vers le bas */
-  gap: 1.5rem; /* Espacement entre les éléments */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7rem;
+    padding: 1rem 2rem;
+    background: #f5f5f5; /* Pour masquer les éléments qui défilent dessous */
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center; /* Aligné verticalement au centre */
+    justify-content: space-between; /* Espace entre nav et titre */
+    z-index: 1000;
+}
+
+header h1 {
+    font-family: 'Wreckage', sans-serif !important;
+    font-size: 5rem;
+    text-align: center;
+    flex-grow: 1; /* Prend tout l'espace pour se centrer */
+    background: none;
+    line-height: 1;
 }
 
 .topnav {
-  display: flex;
-  gap: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    white-space: nowrap; /* Empêche le menu de passer à la ligne */
 }
 
 .topnav a {
-  text-decoration: none;
+    text-decoration: none;
+    color: #333;
 }
+
 .topnav a.active {
-  text-decoration: underline; /* Souligner le lien actif */
+    text-decoration: underline;
+    font-weight: bold;
 }
 
-/* ===== STRUCTURE GÉNÉRALE ===== */
-body {
-  display: flex;
-}
-
-/* ===== MENU LATÉRAL ===== */
+/* ===== 4. NAVIGATION LATÉRALE (ASIDE) ===== */
 aside {
-  position: fixed; /* Le menu est fixe à gauche */
-  margin-top: 7rem; /* Décalage pour ne pas recouvrir l'en-tête */
-  width: 155px; /* Largeur fixe */
-  padding: 1rem;
-  border-right: 1px solid #ccc; /* Bordure à droite du menu */
+    position: fixed;
+    top: 7rem; /* Sous le header */
+    left: 0;
+    width: 155px;
+    height: calc(100vh - 7rem);
+    padding: 1.5rem 1rem;
+    border-right: 1px solid #ccc;
+    overflow-y: auto; /* Permet de scroller dans les genres si besoin */
 }
 
 aside ul {
-  display: block; /* S'assurer que la liste reste verticale */
-  padding-left: 0; /* Enlever le retrait par défaut */
-  margin: 0;
+    list-style: none;
 }
 
 aside li {
-  display: block; /* Chaque élément sur une ligne */
-  list-style: none; /* Retirer les puces */
-  margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
 }
 
 aside a {
-  display: inline-block; /* Permet des liens qui ne prennent pas toute la ligne */
-  text-decoration: none;
-  text-transform: capitalize;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #555;
 }
 
 aside a.active {
-  text-decoration: underline;
+    text-decoration: underline;
+    color: #000;
 }
 
-/* ===== SECTION PRINCIPALE ===== */
+/* ===== 5. CONTENU PRINCIPAL (SECTION) ===== */
 section {
-  margin-top: 7rem; /* Décalage pour ne pas recouvrir l'en-tête */
-  padding: 2rem;
-  margin-left: 155px;
-  margin-right: 200px;
+    margin-top: 7rem; /* Pour ne pas être sous le header */
+    margin-left: 155px; /* Pour ne pas être sous le aside */
+    margin-right: 200px; /* Espace pour le tchat à droite */
+    padding: 2rem;
+    flex-grow: 1;
 }
 
-/* ===== GRILLE AUDIO ===== */
+/* Grille des audios */
 #audio-grid {
-  columns: 2; /* Deux colonnes pour les éléments audio */
+    columns: 2;
+    column-gap: 2rem;
 }
 
-/* ===== BLOC AUDIO ===== */
 .audio-item {
-  padding: 1rem;
-  break-inside: avoid; /* Eviter que les éléments audio soient coupés à la pagination */
-  page-break-inside: avoid;
-  margin-bottom: 1.5em;
+    break-inside: avoid;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
 }
 
-/* ===== TITRE AUDIO ===== */
+/* Titres des musiques */
 .audio-item h2 {
-  font-size: 2.5rem;
-  text-align: center;
-  max-width: 100%;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .title-musique {
-  font-family: 'Pinyon Script', cursive;
+    font-family: 'Pinyon Script', cursive;
 }
 
-/* ===== IMAGE ===== */
+/* Images de cover */
 .audio-item img {
-  display: block; /* Centrer l'image */
-  margin: 0 auto; /* Centrer horizontalement */
-  width: 80%; /* Largeur de l'image */
-  aspect-ratio: 3 / 2; /* Ratio largeur/hauteur de l'image */
-  object-fit: contain; /* Redimensionner l'image sans la couper */
+    display: block;
+    margin: 0 auto 1.5rem;
+    width: 90%;
+    aspect-ratio: 3 / 2;
+    object-fit: contain;
 }
 
-/* ===== IFRAME AUDIO ===== */
+/* Lecteur iframe */
 .audio-item iframe {
-  width: 100%;
-  height: 60px;
+    width: 100%;
+    height: 60px;
+    border: none;
+    margin-top: 10px;
 }
 
-/* ===== TEXTES DÉCRITIFS ===== */
+/* Textes descriptifs */
 .tracklist-text,
 .genre-text,
 .resume-text {
-  font-family: 'EB Garamond', serif;
-  font-style: italic;
-  font-size: 1.2em;
-  margin-bottom: 1rem;
-  line-height: 1.5;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    line-height: 1.4;
 }
 
-/* ===== LIENS DE GENRES ===== */
 .inline-genre {
-  text-decoration: underline;
-  cursor: pointer; /* Afficher un curseur de lien */
-  color: #555;
-}
-.inline-genre:hover {
-  color: #333; /* Couleur des liens au survol (hover) */
+    text-decoration: underline;
+    cursor: pointer;
+    color: #666;
 }
 
-
-
-/* ===== RESPONSIVE (PETIT ÉCRAN) ===== */
+/* ===== 6. RESPONSIVE (MOBILES) ===== */
 @media screen and (max-width: 900px) {
-  body {
-    flex-direction: column; /* Organiser les éléments en colonne pour les petits écrans */
-  }
+    header {
+        height: auto;
+        flex-direction: column;
+        position: relative;
+    }
 
-  aside { /* Les filtres sont maintenant affichés à l'horizontal */
-    position: fixed;
-    height: auto;
-    padding: 5px;
-    margin-left: 1em;
-    width: 100%;
-    border-bottom: 1px solid #ccc;
-    line-height: 1; /* Réduire l'interligne */
-  }
-  aside ul {
-    display: flex;
-    flex-wrap: wrap; /* Disposer les genres sur plusieurs lignes */
-    gap: 0.5rem;
-  }
-  aside li {
-    margin-bottom: 0;
-  }
+    header h1 {
+        font-size: 3rem;
+    }
 
-  section {
-    margin: 0;
-    margin-top: 100px;
-    width: 100%;
-    padding: 0;
-  }
+    aside {
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+    }
 
-  #audio-grid {
-    columns: 1; /* Afficher les éléments audio en une seule colonne sur les petits écrans */
-  }
+    aside ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
 
-  .audio-item img {
-    width: 60%; /* Réduire la taille des images sur les petits écrans */
-  }
+    section {
+        margin: 0;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    #audio-grid {
+        columns: 1;
+    }
 }
-
-/* Rappel sur les unités CSS :
-   - rem : "root em", basé sur la taille de police racine (généralement 16px)
-   - em : relative à la taille de police de l'élément parent
-   - px : pixels (taille fixe)
-   - % : pourcentage, basé sur la taille du parent
-   - vw/vh : unités basées sur la taille de la fenêtre (viewport width/height)
-*/
