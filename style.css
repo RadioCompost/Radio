@@ -18,10 +18,9 @@
 }
 
 header h1 {
-  font-family: 'Wreckage', sans-serif; /* Utilise le nom défini dans @font-face */
-  font-size: 2rem; /* Tu devras peut-être ajuster la taille, les fonts custom sont souvent plus petites ou plus grandes */
-  display: block;    /* Force l'affichage */
-  visibility: visible;
+  font-family: 'Wreckage', sans-serif !important; /* Ajoute !important pour gagner sur le * */
+  font-size: 3rem; 
+  background: none; /* TRÈS IMPORTANT : ton * met un fond gris partout, ici on n'en veut pas */
 }
 
 /* ===== EN-TÊTE ===== */
