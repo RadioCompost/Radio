@@ -27,7 +27,7 @@ header h1 {
 header { 
   position: fixed; /* Position fixe pour que l'en-tête reste en haut même lors du défilement */
   width: 100%; /* Largeur pleine de l'écran */
-  height: 6.5rem; /* Hauteur automatique de l'en-tête */
+  height: 7rem; /* Hauteur automatique de l'en-tête */
   padding: 0.1rem;
   border-bottom: 1px solid #ccc; /* Bordure sous l'en-tête */
   display: flex; /* Utilisation de flexbox pour organiser les éléments */
@@ -55,7 +55,7 @@ body {
 /* ===== MENU LATÉRAL ===== */
 aside {
   position: fixed; /* Le menu est fixe à gauche */
-  margin-top: 6.5rem; /* Décalage pour ne pas recouvrir l'en-tête */
+  margin-top: 7rem; /* Décalage pour ne pas recouvrir l'en-tête */
   width: 155px; /* Largeur fixe */
   padding: 1rem;
   border-right: 1px solid #ccc; /* Bordure à droite du menu */
@@ -85,7 +85,7 @@ aside a.active {
 
 /* ===== SECTION PRINCIPALE ===== */
 section {
-  margin-top: 6.5rem; /* Décalage pour ne pas recouvrir l'en-tête */
+  margin-top: 7rem; /* Décalage pour ne pas recouvrir l'en-tête */
   padding: 2rem;
   margin-left: 155px;
   margin-right: 200px;
